@@ -3,12 +3,12 @@ import "./App.css";
 import Card from "./components/Card";
 
 const cardImages = [
-  { src: "/img/apple.jpg" },
-  { src: "/img/custard-apple.jpg" },
-  { src: "/img/dragon-fruit.jpg" },
-  { src: "/img/grapes.jpg" },
-  { src: "/img/papaya.jpg" },
-  { src: "/img/watermelon.jpg" },
+  { src: "img/apple.jpg" },
+  { src: "img/custard-apple.jpg" },
+  { src: "img/dragon-fruit.jpg" },
+  { src: "img/grapes.jpg" },
+  { src: "img/papaya.jpg" },
+  { src: "img/watermelon.jpg" },
 ];
 
 function App() {
