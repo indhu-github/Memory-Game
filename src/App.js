@@ -27,18 +27,26 @@ function App() {
     setTurns(0);
   };
 
-  // console.log(cards, turns);
+  //console.log(cards, turns);
 
   const handleChoice = (card) => {
-    // console.log(card);
+    //console.log(card);
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
-  //compare two selected cards
+  //compare two selected cards and set the matched flag for two cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        console.log("cards match");
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
         resetTurn();
       } else {
         console.log("cards dont match");
@@ -46,6 +54,8 @@ function App() {
       }
     }
   }, [choiceOne, choiceTwo]);
+
+  console.log(cards);
 
   //reset choices and increment turns
   const resetTurn = () => {
@@ -58,7 +68,6 @@ function App() {
     <div className="App">
       <h1>Memory Game</h1>
       <button onClick={shuffleCards}>New Game</button>
-
       <div className="card-grid">
         {cards.map((card) => (
           <Card key={card.id} card={card} handleChoice={handleChoice} />
