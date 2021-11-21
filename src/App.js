@@ -68,6 +68,7 @@ function App() {
     shuffleCards();
   }, []);
 
+  //shows the game over message
   useEffect(() => {
     if (
       turns > 0 &&
