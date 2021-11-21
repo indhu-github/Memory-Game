@@ -68,6 +68,16 @@ function App() {
     shuffleCards();
   }, []);
 
+  useEffect(() => {
+    if (
+      turns > 0 &&
+      Object.values(cards).every((card) => card.matched === true)
+    ) {
+      window.alert(`Game over with ${turns} turns`);
+      shuffleCards();
+    }
+  }, [cards, turns]);
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
